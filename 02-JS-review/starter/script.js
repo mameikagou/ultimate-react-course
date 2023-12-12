@@ -148,7 +148,7 @@ console.log(genres[0])
 function getBook(id) {
   return data.find((d) => d.id === id);
 }
-const { id, title, author } = getBook(1);
+const { id, title, author,pages,publicationDate} = getBook(1);
 // the destructuring assignment syntax is a JavaScript expression 
 // that makes it possible to unpack values from arrays,
 //  or properties from objects, into distinct variables.
@@ -174,4 +174,31 @@ const updatedBook = {
   pages: 1213,// 覆盖了前面的
 }
 updatedBook
+
+const summary = `${title}, a ${pages}-page long book, was written by ${author}
+and published in ${publicationDate.split("-")[0]}.`;
+summary;
+
+ console.log(true && "Sum string");
+ console.log(false && "Sum string");
+ console.log(0 && "Sum string");
+ console.log(32323 && "Sum string");
+
+  console.log(true || "Sum string");// set daufault value
+
+const book4 = getBook(4);
+const rating = book4.reviews.goodreads.rating.ll || 'N/A';
+rating
+
+function getTotalReviewCount(book){
+  const librarything = book.reviews.librarything?.reviewsCount?.xx;
+  return librarything;
+}
+let TotalReviewCount = getTotalReviewCount(book4);
+TotalReviewCount
+
+
+
+
+
 
