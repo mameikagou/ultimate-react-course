@@ -138,7 +138,40 @@ const data = [
 function getBooks() {
   return data;
 }
+const books = getBooks();
+books
+
+const {genres} = books[0];
+genres
+console.log(genres[0])
 
 function getBook(id) {
   return data.find((d) => d.id === id);
 }
+const { id, title, author } = getBook(1);
+// the destructuring assignment syntax is a JavaScript expression 
+// that makes it possible to unpack values from arrays,
+//  or properties from objects, into distinct variables.
+id
+title
+author
+
+const numbers = [1, 2, 3, 4, 5];
+
+const [first, second, ...rest] = numbers;
+first
+rest
+
+// 也可以用于在数组创建的时候
+const newGenres = [ "epic fantasy",...genres];
+newGenres
+
+const book = books[0];
+// 给对象添加属性
+const updatedBook = {
+  ...book,
+  moviePublicationDate: "2001-12-19",
+  pages: 1213,// 覆盖了前面的
+}
+updatedBook
+

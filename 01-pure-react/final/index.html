@@ -30,10 +30,19 @@
         }, []);
 
         return React.createElement("header", null, `Hello React! It's ${time}`);
+        // React.createElement(type, [props], [...children]);
+        // 标签或react片段/react子元素, 数据, 子元素
+        // const element = <div className="my-class">Hello, React!</div>;
+        // const element = React.createElement('div', { className: 'my-class' }, 'Hello, React!');
+
       }
 
-      const root = ReactDOM.createRoot(document.getElementById("root"));
-      root.render(React.createElement(App));
+      // const root = ReactDOM.createRoot(document.getElementById("root"));
+      // root.render(React.createElement(App));
+
+      ReactDOM.render(React.createElement(App),document.getElementById("root"));
+      // ReactDOM.render(<ComponentToRender />, targetNode)
+      // ReactDOM.render('标签')
     </script>
   </body>
 </html>
