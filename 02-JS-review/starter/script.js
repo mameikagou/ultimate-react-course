@@ -139,72 +139,90 @@ function getBooks() {
   return data;
 }
 const books = getBooks();
-books
+books;
 
-const {genres} = books[0];
-genres
-console.log(genres[0])
+const { genres } = books[0];
+genres;
+console.log(genres[0]);
 
 function getBook(id) {
   return data.find((d) => d.id === id);
 }
-const { id, title, author,pages,publicationDate} = getBook(1);
-// the destructuring assignment syntax is a JavaScript expression 
+const { id, title, author, pages, publicationDate } = getBook(1);
+// the destructuring assignment syntax is a JavaScript expression
 // that makes it possible to unpack values from arrays,
 //  or properties from objects, into distinct variables.
-id
-title
-author
+id;
+title;
+author;
 
 const numbers = [1, 2, 3, 4, 5];
 
 const [first, second, ...rest] = numbers;
-first
-rest
+first;
+rest;
 
 // 也可以用于在数组创建的时候
-const newGenres = [ "epic fantasy",...genres];
-newGenres
+const newGenres = ["epic fantasy", ...genres];
+newGenres;
 
 const book = books[0];
 // 给对象添加属性
 const updatedBook = {
   ...book,
   moviePublicationDate: "2001-12-19",
-  pages: 1213,// 覆盖了前面的
-}
-updatedBook
+  pages: 1213, // 覆盖了前面的
+};
+updatedBook;
 
 const summary = `${title}, a ${pages}-page long book, was written by ${author}
 and published in ${publicationDate.split("-")[0]}.`;
 summary;
 
- console.log(true && "Sum string");
- console.log(false && "Sum string");
- console.log(0 && "Sum string");
- console.log(32323 && "Sum string");
+console.log(true && "Sum string");
+console.log(false && "Sum string");
+console.log(0 && "Sum string");
+console.log(32323 && "Sum string");
 
-  console.log(true || "Sum string");// set daufault value
+console.log(true || "Sum string"); // set daufault value
 
 const book4 = getBook(4);
-const rating = book4.reviews.goodreads.rating.ll || 'N/A';
-rating
+const rating = book4.reviews.goodreads.rating.ll || "N/A";
+rating;
 
-function getTotalReviewCount(book){
+function getTotalReviewCount(book) {
   const librarything = book.reviews.librarything?.reviewsCount?.xx;
   return librarything;
 }
 let TotalReviewCount = getTotalReviewCount(book4);
-TotalReviewCount
-
+TotalReviewCount;
 
 let x = 6;
-if (x++>5) console.log(x);
+if (x++ > 5) console.log(x);
 else console.log(x--);
 let y = 4;
-if (y++>5) console.log(y);
-else  console.log(y--);
-
+if (y++ > 5) console.log(y);
+else console.log(y--);
 
 let 对象 = new Object();
+
+const newBook = {
+  id: 6,
+  title: "The Lord of the Rings",
+  author: "J. R. R. Tolkien",
+};
+
+// 使用filter来删除; 筛选的语法
+const bookAdd = [...books, newBook];
+bookAdd;
+
+const bookAfterDelete = bookAdd.filter((book) => book.id !== 6);
+bookAfterDelete;
+
+// 使用map来修改. map的作用是筛选出所有符合要求的; 
+// 后续可以通过套皮函数来传参
+const bookAfterUpdate = bookAdd.map((book) =>
+  book.id === 6 ? { ...book, title: "The Lord of the Rings 2" } : book
+);
+
 
