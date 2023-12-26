@@ -198,7 +198,13 @@ let TotalReviewCount = getTotalReviewCount(book4);
 TotalReviewCount
 
 
+let x = 6;
+if (x++>5) console.log(x);
+else console.log(x--);
+let y = 4;
+if (y++>5) console.log(y);
+else  console.log(y--);
 
 
-
+let 对象 = new Object();
 
