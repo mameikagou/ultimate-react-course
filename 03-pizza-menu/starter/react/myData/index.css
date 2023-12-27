@@ -83,9 +83,11 @@ body {
 .menu h2 {
   display: inline-block;
   padding: 1rem 0;
+  /* 画两条横杠 */
   border-top: 2px solid currentColor;
   border-bottom: 2px solid currentColor;
   font-size: 2.4rem;
+  /* 大写 */
   text-transform: uppercase;
   letter-spacing: 3px;
   font-weight: 500;
@@ -111,7 +113,9 @@ body {
 }
 
 .pizza img {
+  /* 设置宽度 */
   width: 12rem;
+  /* 设置宽高比 */
   aspect-ratio: 1;
   align-self: start;
 }
