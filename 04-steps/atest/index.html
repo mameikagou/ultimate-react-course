@@ -1,39 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello React!</title>
-  </head>
-  <body>
-    <div id="root"></div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Hello React!</title>
 
-    <script
-      src="https://unpkg.com/react@18/umd/react.development.js"
-      crossorigin
-    ></script>
-    <script
-      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
-      crossorigin
-    ></script>
+        <script
+            src="https://unpkg.com/react@18/umd/react.development.js"
+            crossorigin
+        ></script>
+        <script
+            src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+            crossorigin
+        ></script>
+    </head>
+    <body>
+        <div id="root"></div>
 
-    <script>
-      function App() {
-        const [time,setTime] = React.useState(new Date().toLocaleTimeString());
-        console.log("Hello React!");
+        <script>
+            function App() {
+                const data = {
+                    img: "https://picsum.photos/200/300",
+                    title:
+                        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+                    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+                    tags: [
+                        { color: "#b8c1ec", text: "#eebbc3" },
+                        { color: "#abd1c6", text: "#f9bc60" },
+                        { color: "#abd1c6", text: "#e16162" },
+                    ],
+                };
 
-        React.useEffect(()=>{
-          setInterval(()=>{
-            setTime(new Date().toLocaleTimeString());
-            // time = new Date().toLocaleTimeString();
-          },1000)
-        },[])
-        return React.createElement("header",  { className: 'my-class' },`Hello React! It's ${time}`);
-      }
+                return (
+                    <div>
+                        <img src={data.img} alt="random" />
+                        <h2>{data.title}</h2>
+                        <p>{data.text}</p>
+                        <div>
+                            {data.tags.map((tag) => {
+                                return <Tag color={tag.color} text={tag.text}></Tag>;
+                            })}
+                        </div>
+                    </div>
+                );
+            }
+            function Tag({ color, text }) {
+                const style = {
+                    backgroundColor: color,
+                    width: "5rem",
+                    height: "3rem",
+                    fontSize: "1.5rem",
+                    textAlign: "center",
+                };
+                return (
+                    <div className="tag" style={style}>
+                        {text}
+                    </div>
+                );
+            }
 
-      const root = ReactDOM.createRoot(document.getElementById("root"));
-      root.render(React.createElement(App));
-    </script>
-  </body>
+            const root = ReactDOM.createRoot(document.getElementById("root"));
+            root.render(React.createElement(App));
+        </script>
+    </body>
 </html>

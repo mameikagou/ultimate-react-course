@@ -5,13 +5,11 @@ import spinaci from "#/pizzas/spinaci.jpg";
 import React from "react";
 import "#/index.css";
 
+// 因为使用纯函数, 所以react的变量是不可变的;
 
-// 因为使用纯函数, 所以react的变量是不可变的; 
+// react还使用单向数据流, 一般从父组件到子组件, 而不能反过来;
 
-// react还使用单向数据流, 一般从父组件到子组件, 而不能反过来; 
-
-// 相对于angular的双向; 
-
+// 相对于angular的双向;
 
 function App() {
   const hour = new Date().getHours();
@@ -44,27 +42,66 @@ function Header() {
   );
 }
 function Menu() {
+  const pizzaData = [
+    {
+      name: "Focaccia",
+      ingredients: "Bread with italian olive oil and rosemary",
+      price: 6,
+      photoName: spinaci,
+      soldOut: false,
+    },
+    {
+      name: "Pizza Margherita",
+      ingredients: "Tomato and mozarella",
+      price: 10,
+      photoName: spinaci,
+      soldOut: false,
+    },
+    {
+      name: "Pizza Spinaci",
+      ingredients: "Tomato, mozarella, spinach, and ricotta cheese",
+      price: 12,
+      photoName: spinaci,
+      soldOut: false,
+    },
+    {
+      name: "Pizza Funghi",
+      ingredients: "Tomato, mozarella, mushrooms, and onion",
+      price: 12,
+      photoName: spinaci,
+      soldOut: false,
+    },
+    {
+      name: "Pizza Salamino",
+      ingredients: "Tomato, mozarella, and pepperoni",
+      price: 15,
+      photoName: spinaci,
+      soldOut: true,
+    },
+    {
+      name: "Pizza Prosciutto",
+      ingredients: "Tomato, mozarella, ham, aragula, and burrata cheese",
+      price: 18,
+      photoName: spinaci,
+      soldOut: false,
+    },
+  ];
   return (
     <div className="menu">
       <h2>our Menu</h2>
-      <Pizza
-        name="Pizza Spinaci"
-        ingredients="Spinach, mozzarella, tomato sauce, garlic, olive oil"
-        photoName={spinaci}
-        price="12.50"
-      ></Pizza>
-      <Pizza
-        name="Pizza Spinaci"
-        ingredients="Spinach, mozzarella, tomato sauce, garlic, olive oil"
-        photoName={spinaci}
-        price="12.50"
-      ></Pizza>
-      <Pizza
-        name="Pizza Spinaci"
-        ingredients="Spinach, mozzarella, tomato sauce, garlic, olive oil"
-        photoName={spinaci}
-        price="12.50"
-      ></Pizza>
+      <div>
+        {pizzaData.map((pizza) => {
+          return (
+            <Pizza
+              name={pizza.name}
+              ingredients={pizza.ingredients}
+              photoName={pizza.photoName}
+              price={pizza.price}
+              key={pizza.name}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }
