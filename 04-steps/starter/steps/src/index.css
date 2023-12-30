@@ -8,6 +8,8 @@ const messages = [
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -57,7 +59,7 @@ body {
 
 .buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .buttons button {
