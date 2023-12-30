@@ -4,18 +4,19 @@ import { useState, useEffect } from "react";
 import spinaci from "#/pizzas/spinaci.jpg";
 import React from "react";
 import "#/index.css";
-
+// import pizzaData from "#/data.js"
 // 因为使用纯函数, 所以react的变量是不可变的;
 
 // react还使用单向数据流, 一般从父组件到子组件, 而不能反过来;
 
 // 相对于angular的双向;
+const hour = new Date().getHours();
+const openHour = 12;
+const closeHour = 20;
+const isOpen = hour > openHour && hour < closeHour;
 
 function App() {
-  const hour = new Date().getHours();
-  const openHour = 12;
-  const closeHour = 20;
-  hour > openHour && hour < closeHour
+  isOpen
     ? console.log(
         `Sorry, we are closed now. Open daily from ${openHour}:00 to ${closeHour}:00`
       )
@@ -89,7 +90,16 @@ function Menu() {
   return (
     <div className="menu">
       <h2>our Menu</h2>
-      <div>
+      <div
+        className="warpper"
+        style={{
+          // display:"grid",
+          // gridTemplate:"50% 50%"
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+        }}
+      >
         {pizzaData.map((pizza) => {
           return (
             <Pizza
@@ -119,16 +129,31 @@ function Footer() {
     [] // 空依赖项数组表示该效果仅在组件挂载时运行一次
   );
 
-  return React.createElement(
-    "footer",
-    { className: "footer" },
-    `${time}  &copyright; 2021 Fast React Pizza Co.`
+  return (
+    <>
+      <footer className="footer">
+        {time} &copyright; 2021 Fast React Pizza Co.
+      </footer>
+      <div>
+        {isOpen ? (
+          <p> We're open untill{closeHour}:00. Come visit us or order online! </p>
+        ):
+        (
+          <p>We will open in {openHour}:00. Please come at that time!</p>
+        )}
+      </div>
+    </>
   );
 }
 
 function Pizza({ name, ingredients, photoName, price }) {
   return (
-    <div className="pizza">
+    <div
+      className="pizza"
+      style={{
+        width: "30rem",
+      }}
+    >
       <img src={photoName} alt={name}></img>
       <div>
         <h3>{name}</h3>
