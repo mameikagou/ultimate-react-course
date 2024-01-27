@@ -97,7 +97,7 @@ function Menu() {
           // gridTemplate:"50% 50%"
           display: "flex",
           flexWrap: "wrap",
-          justifyContent: "center",
+          justifyContent: "start",
         }}
       >
         {pizzaData.map((pizza) => {
@@ -107,6 +107,7 @@ function Menu() {
               ingredients={pizza.ingredients}
               photoName={pizza.photoName}
               price={pizza.price}
+              soldOut={pizza.soldOut}
               key={pizza.name}
             />
           );
@@ -146,10 +147,14 @@ function Footer() {
   );
 }
 
-function Pizza({ name, ingredients, photoName, price }) {
+function Pizza({ name, ingredients, photoName, price, soldOut }) {
+
+  // 通过soldOut字段来消除已经卖完了的pizza
+  // if(soldOut) return null; 
   return (
     <div
-      className="pizza"
+    // 通过模版字符串来添加一个类; 
+      className={`pizza ${soldOut?'sold-out':''}`}
       style={{
         width: "30rem",
       }}
@@ -158,7 +163,7 @@ function Pizza({ name, ingredients, photoName, price }) {
       <div>
         <h3>{name}</h3>
         <p>{ingredients}</p>
-        <span>{price}</span>
+        <span>{soldOut ? "SOLD OUT" : price}</span>
       </div>
     </div>
   );
