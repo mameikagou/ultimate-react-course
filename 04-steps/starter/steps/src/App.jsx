@@ -1,4 +1,5 @@
 import { useState } from "react";
+import DateCal from "./DateCal";
 
 const messages = [
   "Learn React ⚛️",
@@ -7,6 +8,9 @@ const messages = [
 ];
 
 function App() {
+  // For data that should not trigger
+  //  component re-renders, 
+  // don't use state;
   const [count, setCount] = useState(0);
   const [step, setStep] = useState(1);
   const [isOpen, setIsOpen] = useState(true);
@@ -18,8 +22,11 @@ function App() {
   const handleNext = () => {
     if (step < len) setStep((step) => step + 1);// 记得用回调的方法
   };
+
+  // const calClassName = 
   return (
     <>
+    <DateCal />
       <button className="close" onClick={()=>setIsOpen(!isOpen)}>&times;</button>
       {isOpen && (
         // 记住, 括号里面的东西, 一定有一个父组件;  
