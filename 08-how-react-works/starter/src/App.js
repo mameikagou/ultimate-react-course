@@ -39,10 +39,13 @@ function Tabbed({ content }) {
       </div>
 
       {activeTab <= 2 ? (
+        // content.prototype.at, 访问指定Arrary的元素
         <TabContent item={content.at(activeTab)} />
       ) : (
         <DifferentContent />
       )}
+      {/* 这样调用也可以, 但是它不是一个合法的组件, 你甚至无法用它管理自己的状态;  */}
+      {/* {TabContent({item: content.at(activeTab)})} */}
     </div>
   );
 }

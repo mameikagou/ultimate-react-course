@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 
 import StarRating from "./StarRating";
@@ -66,22 +66,9 @@ const tempWatchedData: WatchedType[] = [
     userRating: 9,
   },
 ];
-const KEY = "f84fc31d";
-
 function App() {
   const [movies, setMovies] = useState<MoviesType[]>(tempMovieData);
   const [watched, setWatched] = useState<WatchedType[]>(tempWatchedData);
-
-  // 时机是在组件挂载之后, 会触发重新渲染
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch(`https://www.omdbapi.com/?apikey=${KEY}&s=interstellar`);
-      const data = await res.json();
-      setMovies(data.Search);
-    };
-    fetchData();
-  }, []);
-
   return (
     <>
       {/* 这样的结构更清晰;  */}
@@ -96,9 +83,9 @@ function App() {
           {/* <MoviesBox1 movies={movies}></MoviesBox1> */}
         </ListBox>
         <ListBox>
-          <Summary watched={watched}></Summary>
-          <MoviesList watched={watched}></MoviesList>
-          {false && <StarRating></StarRating>}
+          {/* <Summary watched={watched}></Summary>
+          <MoviesList watched={watched}></MoviesList> */}
+          <StarRating></StarRating>
         </ListBox>
       </Main>
     </>
@@ -133,7 +120,7 @@ const ListBox = ({
       </div>
     </>
   );
-}
+};
 const ListBox2 = ({ children }: { children: React.ReactNode }) => {
   const [isOpen2, setIsOpen2] = useState<boolean>(true);
   return (
