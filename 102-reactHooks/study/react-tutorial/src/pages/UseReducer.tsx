@@ -1,23 +1,26 @@
 import { useReducer, useState } from "react";
 import { types } from "web3";
 
+
+// margin: 0 auto; 使得元素水平居中;只对块级元素有效;
+
 export default function UseReducer() {
   // const [count,setCount] = useState(0);
   const [count, dispatch] = useReducer(countReducer, 0);
   return (
-    <>
-      <h1>{count}</h1>
-      <div>
-        <button onClick={() => dispatch({ type: "Add", payload: 1 })}>
+    <div style={{width:"100%"}}>
+      <h1 style={{fontSize:"30px",textAlign:"center",margin:"0 auto"}}>{count}</h1>
+      <div style={{width:"100%",margin:"0 auto"}}>
+        <button style={{display:"block",margin:"0 auto",width:"400px",height:"400px"}} onClick={() => dispatch({ type: "Add", payload: 1 })}>
           加1
         </button>
       </div>
-      <div>
-        <button onClick={() => dispatch({ type: "Minus", payload: 1 })}>
+      <div style={{}}>
+        <button style={{display:"block",margin:"0 auto",width:"400px",height:"400px"}} onClick={() => dispatch({ type: "Minus", payload: 1 })}>
           减1
         </button>
       </div>
-    </>
+    </div>
   );
 }
 

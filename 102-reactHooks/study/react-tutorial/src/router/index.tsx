@@ -15,6 +15,7 @@ const LazyLoadComponent = lazy(() => import("@/pages/LazyLoadComponent"));
 const Hooks = lazy(() => import("@/pages/Hooks"));
 const SeclectFromMysql = lazy(() => import("@/pages/SelectFromMysql"));
 const Login = lazy(() => import("@/pages/Login"));
+const UseReducer = lazy(() => import("@/pages/UseReducer"));
 
 const init = () => {
   useEffect;
@@ -57,6 +58,14 @@ const router = createBrowserRouter([
       </Suspense>
     ),
   },
+  {
+    path: "/UseReducer",
+    element: (
+      <Suspense fallback={<div>loading it ...</div>}>
+        <UseReducer />
+      </Suspense>
+    ),
+  }
 ]);
 
 // const root=document.getElementById('root');

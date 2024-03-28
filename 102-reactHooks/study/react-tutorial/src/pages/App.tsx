@@ -16,6 +16,14 @@ import {
 function App() {
   const [count, setCount] = useState(0);
 
+  const components = [
+    {id:1,name: "LazyLoadComponent", path: "/LazyLoadComponent"},
+    {id:2,name: "Hooks", path: "/Hooks"},
+    {id:3,name: "SelectFromMysql", path: "/SelectFromMysql"},
+    {id:4,name: "Login", path: "/Login"},
+    {id:5,name: "UseReducer", path: "/UseReducer"},
+  ]
+
   return (
     <>
       <div>
@@ -39,7 +47,14 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
       <div>
-        <Link to="/LazyLoadComponent">
+        {components.map((item)=>{
+          return(
+            <Link to={item.path}>
+              <Button type="default">{item.name}</Button>
+            </Link>
+          )
+        })}
+        {/* <Link to="/LazyLoadComponent">
           <Button type="default">Button</Button>
         </Link>
         <Link to="/Hooks">
@@ -50,7 +65,7 @@ function App() {
         </Link>
         <Link to="/Login">
           <Button type="default">Login</Button>
-        </Link>
+        </Link> */}
       </div>
     </>
   );
