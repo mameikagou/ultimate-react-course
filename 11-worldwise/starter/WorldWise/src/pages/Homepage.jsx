@@ -1,9 +1,12 @@
 import styles from "./Homepage.module.css";
+import { Link } from "react-router-dom";
 
 export default function Homepage() {
   return (
     <main className={styles.homepage}>
       <section>
+        <h3><Link to="/pricing">Pricing</Link></h3>
+        <h3><Link to="/product">Product</Link></h3>
         <h1>
           You travel the world.
           <br />

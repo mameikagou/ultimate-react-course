@@ -11,6 +11,8 @@ contract Test {
             let _num := 4
             let _tem := mload(0x40)
         }
+        uint8[4] memory items = [1,2,3,4]; 
+        // 这里在说, 他开辟了内存, 存到了3个块里面, 从0x0到0x20到0x40
         return testNum;
     }
 }

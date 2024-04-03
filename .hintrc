@@ -1,4 +1,5 @@
 {
+  "customSyntax": "postcss-html",
   "extends": [
     "development"
   ],
