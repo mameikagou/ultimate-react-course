@@ -8,7 +8,7 @@ const HomePage = lazy(()=>import('@pages/Homepage.jsx'))
 const Product = lazy(()=>import('@pages/Product.jsx'))
 const Pricing = lazy(()=>import('@pages/Pricing.jsx'))
 const NotFound = lazy(()=>import('@pages/PageNotFound.jsx'))
-
+const AppLayout = lazy(()=>import('@pages/AppLayout.jsx'))
 
 const router = createBrowserRouter([
   {
@@ -28,6 +28,14 @@ const router = createBrowserRouter([
     element: (
       <Suspense fallback={<div>loading it ...</div>}>
         <Pricing/>
+      </Suspense>
+    ),
+  },
+  {
+    path: "/app",
+    element: (
+      <Suspense fallback={<div>loading it ...</div>}>
+        <AppLayout />
       </Suspense>
     ),
   },
