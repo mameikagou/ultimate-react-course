@@ -4,16 +4,18 @@ import App from './App.jsx'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'
 import './index.css'
 
+
 const HomePage = lazy(()=>import('@pages/Homepage.jsx'))
 const Product = lazy(()=>import('@pages/Product.jsx'))
 const Pricing = lazy(()=>import('@pages/Pricing.jsx'))
 const NotFound = lazy(()=>import('@pages/PageNotFound.jsx'))
 const AppLayout = lazy(()=>import('@pages/AppLayout.jsx'))
 
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage />,
+    element:<App/>,
   },
   {
     path: "/product",
