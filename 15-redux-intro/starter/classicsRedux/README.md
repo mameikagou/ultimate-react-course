@@ -1,5 +1,10 @@
 
 
+### redux tookit
+```
+pnpm i @redux/tookit
+```
+
 几个有关redux的包
 
 ### Provider

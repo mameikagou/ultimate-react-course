@@ -10,6 +10,7 @@ function Customer() {
   const [nationalId, setNationalId] = useState("");
 
   const dispatch = useDispatch();
+  console.log(createCustomer)
 
   function handleClick() {
     if(!fullName || !nationalId) return;
