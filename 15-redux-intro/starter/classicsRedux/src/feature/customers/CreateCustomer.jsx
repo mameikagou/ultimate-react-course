@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { createCustomer } from "./customerSlice";
+import { store } from "../../store/store-v1";
 
 function Customer() {
   const [fullName, setFullName] = useState("");
@@ -11,7 +12,9 @@ function Customer() {
   const dispatch = useDispatch();
 
   function handleClick() {
+    if(!fullName || !nationalId) return;
     dispatch(createCustomer(fullName, nationalId));
+    console.log(store.getState());
   }
 
   return (

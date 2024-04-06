@@ -10,7 +10,7 @@ export const costomerReducer = (state = initialStateCustomer, action) => {
     case "customer/createCustomer":
       return {
         ...state,
-        customer: action.payload,
+        fullName: action.payload.fullName,
         nationalID: action.payload.nationalID,
         createdAt: action.payload.createdAt,
       };
@@ -32,9 +32,9 @@ export const createCustomer = (fullName, nationalID) => {
   };
 };
 
-export const updateName = (fullname) => {
+export const updateName = (fullName) => {
   return {
     type: "customer/updateName",
-    payload: fullname,
+    payload: fullName,
   };
 };

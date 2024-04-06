@@ -2,13 +2,14 @@ const initialStateAccount = {
   balance: 0,
   loan: 0,
   loanPurpose: "",
+  isLoading: false,
 };
 
 export function accountReducer(state = initialStateAccount, action) {
   switch (action.type) {
     // 这里的属性都是哪来的?都是在传入的时候添加的;
     case "account/deposit":
-      return { ...state, balance: state.balance + action.payload };
+      return { ...state, balance: state.balance + action.payload, };
 
     case "account/withdraw":
       return { ...state, balance: state.balance - action.payload };
@@ -30,19 +31,41 @@ export function accountReducer(state = initialStateAccount, action) {
         loanPurpose: "",
         balance: state.balance - state.loan,
       };
+    case "account/convertingCurrency":
+      return { ...state, isLoading: true };
+    
     default:
       return state;
   }
 }
 
-
 // 封装事件
-export const deposit = (amount) => {
-  return {
-    type: "account/deposit",
-    payload: amount,
-  };
-};
+export const deposit = (amount, currency) => {
+  // 如果是美元, 就直接传; 不需要转化;  
+  if(currency==="USD"){
+    return {
+      type: "account/deposit",
+      payload: amount,
+    };
+  }
+
+  return async (dispatch, getState)=>{
+    dispatch({ 
+      type: "account/convertingCurrency",
+    });
+ 
+    const res = await fetch();
+    const data = await res.json();
+    // 这里是伪代码哈, 不知道源数据; 
+    const convertedAmount = data.rates[currency] * amount;
+
+    dispatch({
+      type: "account/deposit",
+      payload: convertedAmount,
+    });
+
+  }
+}; 
 export const withdraw = (amount) => {
   return {
     type: "account/withdraw",
