@@ -43,7 +43,7 @@ export async function updateOrder(id, updateObj) {
       body: JSON.stringify(updateObj),
       headers: {
         'Content-Type': 'application/json',
-      },
+      }, 
     });
 
     if (!res.ok) throw Error();

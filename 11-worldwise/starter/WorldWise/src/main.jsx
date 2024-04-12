@@ -16,6 +16,9 @@ const router = createBrowserRouter([
   {
     path: "/",
     element:<App/>,
+    children:[
+
+    ]
   },
   {
     path: "/product",
@@ -40,6 +43,39 @@ const router = createBrowserRouter([
         <AppLayout />
       </Suspense>
     ),
+    childrens:[
+      {
+        path: "/app/",
+        element: <div>喵喵喵</div>
+      },
+      {
+        path: "/app/cities",
+        element: (
+          <Suspense fallback={<div>loading it ...</div>}>
+            <CityList />
+            {/* <div>cities</div> */}
+          </Suspense>
+        )
+      },
+      {
+        path: "/app/countries",
+        element: (
+          <Suspense fallback={<div>loading it ...</div>}>
+            <CountryList/>
+            {/* <div>countries</div> */}
+          </Suspense>
+        )
+      },
+      {
+        path: "/app/form",
+        element: (
+          <Suspense fallback={<div>loading it ...</div>}>
+            {/* <Form/> */}
+            <div>form</div>
+          </Suspense>
+        )
+      }
+    ]
   },
   {
     path: "*",
@@ -64,5 +100,6 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
      <RouterProvider router={router} />
+     {/* <App/> */}
   </React.StrictMode>,
 )
