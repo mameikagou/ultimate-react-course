@@ -1,0 +1,74 @@
+{
+  "contractName": "Storge",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Storage.sol\":\"Storge\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Storage.sol\":{\"keccak256\":\"0xfeff74b970679e77a120588613b5278a535c838080504faae6c11d9cbe74b32c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://71628459c45e6f1305c78cba40e794079692d59e6879e38c96b27561218d85cd\",\"dweb:/ipfs/Qmc73A1ezpjEk91ieCuL4HMwzpLcMNLGYNTdTfR79XQHu1\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea264697066735822122053d41c4e385e893bb78e187c25b850827d25d7c9a2dcff3e81e8cf7220d3943564736f6c63430008130033",
+  "deployedBytecode": "0x6080604052600080fdfea264697066735822122053d41c4e385e893bb78e187c25b850827d25d7c9a2dcff3e81e8cf7220d3943564736f6c63430008130033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "104:19:1:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "104:19:1:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity 0.8.19;\n\n\n// uint8 , 无符号整数, 是一个字节; \ncontract Storge{\n\n}\n",
+  "sourcePath": "/Users/lonely/learn/react/ultimate-react-course/101-nextjs-dapp/blockchain/faucet/contracts/Storage.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/Storage.sol",
+    "exportedSymbols": {
+      "Storge": [
+        36
+      ]
+    },
+    "id": 37,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 35,
+        "literals": [
+          "solidity",
+          "0.8",
+          ".19"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:1"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "Storge",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 36,
+        "linearizedBaseContracts": [
+          36
+        ],
+        "name": "Storge",
+        "nameLocation": "113:6:1",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 37,
+        "src": "104:19:1",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:92:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.19+commit.7dd6d404.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.16",
+  "updatedAt": "2024-06-02T17:09:22.564Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

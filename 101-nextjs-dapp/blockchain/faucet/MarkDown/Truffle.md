@@ -1,5 +1,15 @@
+### truffle init
+初始化
+
+### truffle test
+测试合约
+
+### truffle develop
+与合约进行交互
 
 ### truffle migrate --reset
+truffle migrate --reset --network development
+部署到指定网络
 
 ### truffle console
 

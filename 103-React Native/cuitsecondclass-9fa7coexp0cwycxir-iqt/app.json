@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "cuitsecondclass-9fa7coexp0cwycxir-iqt",
+    "slug": "cuitsecondclass-9fa7coexp0cwycxir-iqt",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mrlonely.cuitsecondclass"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.mrlonely.cuitsecondclass"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
